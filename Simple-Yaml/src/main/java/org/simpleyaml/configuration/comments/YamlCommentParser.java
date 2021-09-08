@@ -9,8 +9,7 @@ import java.util.regex.Pattern;
 
 public class YamlCommentParser extends YamlCommentReader {
 
-    // TODO: https://github.com/Carleslc/Simple-YAML/issues/42
-    private static final Pattern SIDE_COMMENT_REGEX = Pattern.compile("^[ \\t]*[^#\\s].*?([ \\t]*#.*)");
+    private static final Pattern SIDE_COMMENT_REGEX = Pattern.compile("^[ \\t]*(?:.*(?:'|\\\").*?([ \\t]*#[^'\\\"]*)$|[^'\\\"]*?([ \\t]*#.*))");
 
     private StringBuilder currentComment; // block comment
 
@@ -55,7 +54,7 @@ public class YamlCommentParser extends YamlCommentReader {
         if (this.currentLine != null) {
             final Matcher sideCommentMatcher = YamlCommentParser.SIDE_COMMENT_REGEX.matcher(this.currentLine);
             if (sideCommentMatcher.matches()) {
-                node.setSideComment(sideCommentMatcher.group(1));
+                node.setSideComment(sideCommentMatcher.group(1) == null ? sideCommentMatcher.group(2) : sideCommentMatcher.group(1));
             }
         }
     }
