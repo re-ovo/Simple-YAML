@@ -7,12 +7,12 @@
     <parent>
         <artifactId>Simple-YAML-Parent</artifactId>
         <groupId>me.carleslc.simpleyaml</groupId>
-        <version>1.8.4</version>
+        <version>1.8.5</version>
     </parent>
     <artifactId>Simple-Yaml</artifactId>
     <groupId>me.carleslc</groupId>
     <name>Simple-Yaml</name>
-    <version>1.8.4</version>
+    <version>1.8.5</version>
 
     <build>
         <plugins>
@@ -44,12 +44,12 @@
         <dependency>
             <groupId>me.carleslc</groupId>
             <artifactId>Simple-Configuration</artifactId>
-            <version>1.8.4</version>
+            <version>1.8.5</version>
         </dependency>
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>2.0</version>
+            <version>2.3</version>
         </dependency>
     </dependencies>
 
